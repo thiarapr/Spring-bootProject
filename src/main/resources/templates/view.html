@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Store Selection</title>
+</head>
+<body>
+	  <p> If you want to add the new Store Then click the link below</p>
+    <a th:href="@{/store}">Add the Stores</a>
+    <p> If you want to add only item to the existing store then click the link below</p>
+    <a th:href="@{/addItem}">Add the items</a>
+    <form th:action="@{/view}" th:object="${selectedStore}" method="get">
+        <p>Select Store: 
+            <select name="storeName">
+                <option th:each="store : ${storeList}" th:value="${store.storeName}" th:text="${store.storeName}"/>
+            </select>
+        </p>
+<input type="submit" value="Submit"><br>
+    </form>
+    
+    <table id="t1" border="1">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Store Name</th>
+<th>Price</th>
+<th>Description</th>
+
+
+</tr>
+
+<tr th:each="s : ${item}">
+<td th:text="${s.id}"></td>
+<td th:text="${s.name}"></td>
+<td th:text="${s.storeName}"></td>
+<td th:text="${s.price}"></td>
+<td th:text="${s.description}"></td>
+<td><a th:href="@{/modify/{id}(id=${s.id})}">Edit</a></td>
+<td><a th:href="@{/delete/{id}(id=${s.id})}">Delete</a></td>
+</td>
+
+</tr>
+
+</table>
+</body>
+</html>

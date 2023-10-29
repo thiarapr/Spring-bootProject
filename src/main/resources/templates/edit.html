@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Item</title>
+</head>
+<body>
+    <h1>Add an Item</h1>
+    <form  th:action="@{/editItem}" th:object="${item}" method="get">
+		<input type="hidden" th:field="*{id}"><br><br>
+        Item Name: <input type="text" th:field="*{name}" required><br>
+        Store:<select th:field="*{storeName}">
+            <option value="">Select a Store</option>
+             <option th:each="c : ${stores}" th:value="${c.storeName}" th:text="${c.storeName}"/>
+
+        </select><br>
+        Price:<input type="number" th:field="*{price}" step="0.01" required><br>
+        Description: <textarea th:field="*{description}" rows="4" cols="50"></textarea><br>
+       
+        <input type="submit" value="Edit Item">
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Item</title>
+</head>
+<body>
+    <h1>Add an Item</h1>
+     <p> If you want to add the new Store Then click the link below</p>
+    <a th:href="@{/store}">Add the Stores</a>
+    <p> If you want to see the items Then click below</p>
+    <a th:href="@{/view1}">Show Items </a>
+    
+    <form  th:action="@{/goaddItems}" th:object="${item}" method="get">
+        Item Name:<input type="text" th:field="*{name}" required><br>
+        Store:<select th:field="*{storeName}">
+            <option value="">Select a Store</option>
+             <option th:each="c : ${stores}" th:value="${c.storeName}" th:text="${c.storeName}"/>
+             </select><br>
+        Price:<input type="number" th:field="*{price}" step="0.01" required><br>
+        Description:  <textarea th:field="*{description}" ></textarea><br>
+       
+        <input type="submit" value="Add Item">
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	  <p> If you want to add the new Store Then click the link below</p>
+    <a th:href="@{/store}">Add the Stores</a>
+    <p> If you want to add only item to the existing store then click the link below</p>
+    <a th:href="@{/addItem}">Add the items</a>
+    <form th:action="@{/view}" th:object="${selectedStore}" method="get">
+        <p>Select Store: 
+            <select name="storeName">
+                <option th:each="store : ${storeList}" th:value="${store.storeName}" th:text="${store.storeName}"/>
+            </select>
+        </p>
+<input type="submit" value="Submit"><br>
+    </form>
+
+</body>
+</html>

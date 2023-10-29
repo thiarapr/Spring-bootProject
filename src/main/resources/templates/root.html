@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <link rel="stylesheet" th:href="@{/css/style1.css}">
+</head>
+<body>
+    <h1>Welcom to the Your Store app </h1>
+   <p> If you want to add the new Store Then click the link below</p>
+    <a th:href="@{/store}">Add the Stores</a>
+    <p> If you want to add only item to the existing store then click the link below</p>
+    <a th:href="@{/addItem}">Add the items</a>
+    <p> If you want to see the items Then click below</p>
+    <a th:href="@{/view1}">Show Items </a>
+</body>
+</html>

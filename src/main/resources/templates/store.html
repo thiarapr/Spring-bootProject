@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+<body>
+    <p>This is Store page</p>
+   <p> If you want to add only item to the existing store then click the link below</p>
+    <a th:href="@{/addItem}">Add the items</a>
+    <p> If you want to see the items Then click below</p>
+    <a th:href="@{/view1}">Show Items </a>
+    
+    <form th:action="@{/goAddStore}" th:object="${store}" method="get">
+       Store ID: <input type="hidden" th:field="*{id}"><br>
+       Store Name: <input type="text" th:field="*{storeName}"><br>
+       Location: <input type="text" th:field="*{location}"><br>
+       PhoneNo: <input type="text" th:field="*{phoneNo}"><br>
+       Opening Timing: <input type="text" th:field="*{openingTime}"><br>
+       
+        <input type="submit" value="Add Store"><br>
+    </form>
+</body>
+</html>
